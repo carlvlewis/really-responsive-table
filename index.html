@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive "Super" Table</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container">
+  <h1>Super Table</h1>
+  
+  <p>The table will become scrollable and automatically lock columns marked with <code>data-auto-lock</code> or <code>data-auto-lock-rear</code> as soon as the table becomes wider than its container. Columns are lockable/unlockable using controls that appear above. At a configurable breakpoint (767px by default), the table will become stacked.</p>
+  
+<p>Bootstrap is used here for quick table styles, but the table's functionality doesn't depend on it. Tested Chrome, Firefox, IE10+, Android, Desktop Safari. Works in Mobile Safari when not inside of CodePen.</p>
+<div id="super-table" data-super-table class="super-table">
+  <div class="responsive">
+  <table id="data-table" class="table table-striped">
+    <thead>
+      <tr>
+        <th data-auto-lock>Source Auction</th>
+        <th>Destination Auction</th>
+        <th data-auto-lock>Year/Make/Model</th>
+        <th>Volume</th>
+        <th data-auto-lock>Src Retention</th>
+        <th>Dest Retention</th>
+        <th>Avg Src Est. Price</th>
+        <th>Avg Dest Est. Price</th>
+        <th>Est. Price Diff.</th>
+        <th>Distance</th>
+        <th data-auto-lock-rear>&nbsp;</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Auction Atlanta</td>
+        <td>Auction Nashville</td>
+        <td>2014 Kia Sorento</td>
+        <td>1</td>
+        <td>96.00%</td>
+        <td>99.10%</td>
+        <td>$13,275</td>
+        <td>$13,694</td>
+        <td>$419</td>
+        <td>213</td>     
+        <td>
+          <a href="#" class="btn btn-inline btn-sm btn-primary">Select VINs</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Auction Atlanta</td>
+        <td>Auction Ohio</td>
+        <td>2015 Kia Forte</td>
+        <td>6</td>
+        <td>96.80%</td>
+        <td>102.80%</td>
+        <td>$10,061</td>
+        <td>$10,694</td>
+        <td>$633</td>
+        <td>440</td>
+        <td>
+          <a href="#" class="btn btn-inline btn-sm btn-primary">Select VINs</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Auction Atlanta</td>
+        <td>Auction Orlando</td>
+        <td>2013 Hyundai Accent</td>
+        <td>1</td>
+        <td>95.10%</td>
+        <td>101.00%</td>
+        <td>$6,102</td>
+        <td>$6,479</td>
+        <td>$377</td>
+        <td>389</td>
+        <td>
+          <a href="#" class="btn btn-inline btn-sm btn-primary">Select VINs</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Auction Atlanta</td>
+        <td>Auction Orlando</td>
+        <td>2014 Hyundai Sonata</td>
+        <td>4</td>
+        <td>1</td>
+        <td>99.40%</td>
+        <td>$10,581</td>
+        <td>$11,104</td>
+        <td>$523</td>
+        <td>389</td>
+        <td>
+          <a href="#" class="btn btn-inline btn-sm btn-primary">Select VINs</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+  
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

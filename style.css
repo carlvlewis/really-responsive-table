@@ -1,0 +1,191 @@
+.container {
+  width: 96%;
+}
+
+.super-table {
+  position: relative;
+  width: 100%;
+}
+.super-table .responsive {
+  padding-top: 30px;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+.super-table .table {
+  margin: 0;
+  width: auto;
+  max-width: none;
+  min-width: 100%;
+}
+.super-table .table th {
+  background-color: #999;
+  color: #fff;
+  border-right: 1px solid #fff;
+  position: relative;
+}
+.super-table .table th:last-child {
+  border-right: none;
+}
+.super-table .table th,
+.super-table .table td {
+  white-space: nowrap;
+}
+.super-table .table .allow-wrap {
+  white-space: normal;
+}
+.super-table a[data-lock-column] {
+  opacity: .5;
+  transition: opacity .3s ease-in-out;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 24px;
+  margin: auto;
+  bottom: calc(100% + 6px);
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: #bbb;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.super-table a[data-lock-column]:hover {
+  color: #777;
+}
+.super-table a[data-lock-column]:before {
+  content: "\f09c";
+}
+.super-table.compact a[data-lock-column] {
+  display: block;
+}
+.super-table.compact .max-locked a[data-lock-column] {
+  display: none;
+}
+.super-table:hover a[data-lock-column] {
+  opacity: 1;
+}
+.super-table.stacked .responsive {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.super-table.stacked .table,
+.super-table.stacked tbody,
+.super-table.stacked tr,
+.super-table.stacked th,
+.super-table.stacked td {
+  display: block;
+  background: none;
+}
+.super-table.stacked .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+@media (max-width: 550px) {
+  .super-table.stacked .table-striped > tbody > tr:nth-of-type(odd) {
+    background: none;
+  }
+}
+.super-table.stacked tr {
+  padding: 4px 0;
+}
+.super-table.stacked tr:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.super-table.stacked td {
+  border: none;
+  width: 50%;
+  float: left;
+  white-space: normal;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+.super-table.stacked td[data-heading]:before {
+  content: attr(data-heading);
+  display: inline-block;
+  padding-right: 8px;
+  font-weight: 700;
+  font-size: 11px;
+}
+@media (max-width: 550px) {
+  .super-table.stacked td:before {
+    content: attr(data-heading);
+    display: block;
+  }
+}
+@media (max-width: 450px) {
+  .super-table.stacked td {
+    width: 100%;
+    float: none;
+  }
+  .super-table.stacked td:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+}
+.super-table.stacked tr {
+  border-top: 1px solid #dddddd;
+  clear: left;
+}
+.super-table.stacked thead {
+  display: none;
+}
+.super-table .lock-table-container {
+  position: absolute;
+  top: 0;
+  bottom: 14px;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #fff;
+  padding-top: 30px;
+  border-bottom: 4px solid #555;
+  box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.25);
+}
+.super-table .lock-table-container a[data-lock-column] {
+  color: #777;
+}
+.super-table .lock-table-container a[data-lock-column]:before {
+  content: "\f023";
+}
+.super-table .lock-table-container .lock-table-inner {
+  height: calc(100% + 4px);
+  border-top: 4px solid #555;
+  border-left: 4px solid #555;
+  transform: translateY(-4px);
+}
+.super-table .lock-table-container .table th {
+  background-color: #555;
+  border-color-right: #555;
+}
+.super-table .lock-table-container td:not(.visible),
+.super-table .lock-table-container th:not(.visible) {
+  visibility: hidden;
+  pointer-events: none;
+}
+.super-table .lock-table-container.rear {
+  left: auto;
+  right: 0;
+  z-index: 1001;
+  box-shadow: -3px 3px 3px 1px rgba(0, 0, 0, 0.25);
+}
+.super-table .lock-table-container.rear .lock-table-inner {
+  border-left: none;
+  border-right: 4px solid #555;
+}
+.super-table .lock-table-container.rear .table {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: none;
+  width: auto;
+}
+.super-table .lock-table-container.rear a[data-lock-column] {
+  display: none;
+}

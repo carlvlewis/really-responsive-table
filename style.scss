@@ -1,0 +1,233 @@
+.container {
+  width: 96%;
+}
+
+.super-table {
+  position: relative;
+  width: 100%;
+  
+  .responsive {
+    padding-top: 30px;
+    padding-bottom: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .table {
+    margin: 0;
+    width: auto;
+    max-width: none;
+    min-width: 100%;
+    
+    th {
+      background-color: #999;
+      color: #fff;
+      border-right: 1px solid #fff;
+      position: relative;
+      
+      &:last-child {
+        border-right: none;
+      }
+    }
+    
+    th,
+    td {
+      white-space: nowrap;
+    }
+    
+    .allow-wrap {
+      white-space: normal;
+    }
+  }
+  
+  a[data-lock-column] {
+    opacity: .5;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 24px;
+    margin: auto;
+    bottom: calc(100% + 6px);
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    color: #bbb;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    
+    &:hover {
+      color: #777;
+    }
+    
+    &:before {
+      content: "\f09c";
+    }
+  }
+  
+  &.compact {
+    a[data-lock-column] {
+      display: block;
+    }
+    
+    .max-locked {
+      a[data-lock-column] {
+        display: none;
+      }
+    }
+  }
+  
+  &:hover {
+    a[data-lock-column] {
+      opacity: 1;
+    }
+  }
+
+  &.stacked {
+    .responsive {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+      .table,
+      tbody,
+      tr,
+      th,
+      td {
+          display: block;
+          background: none;
+      }
+
+      .table-striped>tbody>tr:nth-of-type(odd) {
+          background-color: #f9f9f9;
+          
+          @media (max-width: 550px) {
+              background: none;
+          }
+      }
+
+      tr {
+          padding: 4px 0;
+
+          &:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+      }
+
+      td {
+          border: none;
+          width: 50%;
+          float: left;
+          white-space: normal;
+          padding: 4px 6px;
+          font-size: 13px;
+
+          &[data-heading]:before {
+              content: attr(data-heading);
+              display: inline-block;
+              padding-right: 8px;
+              font-weight: 700;
+              font-size: 11px;
+          }
+
+          @media (max-width: 550px) {
+              &:before {
+                content: attr(data-heading);
+                display: block;
+              }
+          }
+
+          @media (max-width: 450px) {
+              width: 100%;
+              float: none;
+
+              &:nth-child(odd) {
+                    background-color: #f9f9f9;
+                }
+
+          }
+      }
+
+      tr {
+        border-top: 1px solid #dddddd;
+        clear: left;
+      }
+
+      thead {
+          display: none;
+      }
+  }
+  
+  .lock-table-container {
+    position: absolute;
+    top: 0;
+    bottom: 14px;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #fff;
+    padding-top: 30px;
+    border-bottom: 4px solid #555;
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .25);
+    
+    a[data-lock-column] {
+      color: #777;
+      
+      &:before {
+        content: "\f023";
+      }
+    }
+    
+    .lock-table-inner {
+      height: calc(100% + 4px);
+      border-top: 4px solid #555;
+      border-left: 4px solid #555;
+      transform: translateY(-4px);
+    }
+    
+    .table {
+      th {
+          background-color: #555;
+          border-color-right: #555;
+        }
+    }
+    
+    td:not(.visible),
+    th:not(.visible) {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    &.rear {
+      left: auto;
+      right: 0;
+      z-index: 1001;
+      box-shadow: -3px 3px 3px 1px rgba(0, 0, 0, .25);
+      
+      .lock-table-inner {
+        border-left: none;
+        border-right: 4px solid #555;
+      }
+      
+      .table {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: none;
+        width: auto;
+      }
+      
+      a[data-lock-column] {
+        display: none;
+      }
+    }
+  }
+}
